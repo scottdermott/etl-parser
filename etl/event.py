@@ -115,8 +115,8 @@ class Event:
         :return: If known build associate Etw class
         :raise: GuidNotFound, EventIdNotFound, EtwVersionNotFound
         """
-        guid = EtwGuid(self.source.event_header.provider_id.data1, self.source.event_header.provider_id.data2,
-                    self.source.event_header.provider_id.data3, self.source.event_header.provider_id.data4)
+        guid = EtwGuid(self.source.event_header.provider_id.inner.data1, self.source.event_header.provider_id.inner.data2,
+                    self.source.event_header.provider_id.inner.data3, self.source.event_header.provider_id.inner.data4)
         event_id = self.source.event_header.event_descriptor.Id
         version = self.source.event_header.event_descriptor.Version
         user_data = self.source.user_data
